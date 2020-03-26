@@ -1,7 +1,9 @@
-import * as THREE from './three/build/three.module.js';
-import {OrbitControls} from './three/examples/jsm/controls/OrbitControls.js';
-import {FBXLoader} from './three/examples/jsm/loaders/FBXLoader.js';
-import Stats from './three/examples/jsm/libs/stats.module.js';
+// import * as THREE from './three/build/three.module.js';
+// import {OrbitControls} from './three/examples/jsm/controls/OrbitControls.js';
+// import {FBXLoader} from './three/examples/jsm/loaders/FBXLoader.js';
+// import Stats from './three/examples/jsm/libs/stats.module.js';
+import * as THREE from './three.module.js';
+import {OrbitControls} from './OrbitControls.js';
 
 let container = document.createElement('div');
 document.body.appendChild(container);
@@ -23,9 +25,7 @@ controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0, 0);
 controls.update();
 
-// stats
-let stats = new Stats();
-container.appendChild(stats.dom);
+
 let clock = new THREE.Clock();
 let mixer;
 console.log('123');
@@ -69,7 +69,6 @@ function draw() {
 	cube.rotation.z += 0.01;
 	//cube.rotation.y += 0.01;
 	renderer.render(scene, camera);
-	stats.update();
 
 	requestAnimationFrame(draw);
 }
